@@ -1,9 +1,12 @@
 require('dotenv').config()
 const express = require('express')
 const app = express()
+const cors = require('cors')
 require('./config/dbConnect')();
 const mentorRoute = require("./routes/mentorRoute")
 const studentRoute = require("./routes/studentRoute")
+
+app.use(cors())
 
 app.use(express.json())
 app.get("/", (req,res) => {
