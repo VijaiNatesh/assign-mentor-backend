@@ -11,7 +11,7 @@
   },
   "scripts": {
     "start": "node server.js",
-    "server": "nodemon MENTORSTUDENT/server.js"
+    "server": "nodemon mentorstudent/server.js"
   },
   "name": "mentorstudent",
   "version": "1.0.0",
