@@ -1,5 +1,5 @@
 const mongoose = require("mongoose")
-const conn = mongoose.createConnection("process.env.MONGO_URL")
+const conn = mongoose.createConnection(process.env.MONGO_URL)
 
 
 const StudentSchema = new mongoose.Schema({
