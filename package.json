@@ -10,7 +10,7 @@
     "npm": "7.24.1"
   },
   "scripts": {
-    "start": "node server.js",
+    "start": "nodemon server.js",
     "server": "nodemon mentorstudent/server.js"
   },
   "name": "mentorstudent",
