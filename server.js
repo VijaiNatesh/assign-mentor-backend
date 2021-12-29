@@ -6,6 +6,9 @@ const mentorRoute = require("./routes/mentorRoute")
 const studentRoute = require("./routes/studentRoute")
 
 app.use(express.json())
+app.get("/", (req,res) => {
+    res.send("Mentor and Student")
+})
 app.use("/api/mentor", mentorRoute)
 app.use("/api/student", studentRoute)
 
