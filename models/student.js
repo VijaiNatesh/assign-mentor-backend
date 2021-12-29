@@ -12,10 +12,10 @@ const StudentSchema = new mongoose.Schema({
         required: true,
         unique: true   
     },
-    mentor: {
+    mentor:{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Mentor",
-        required: true,        
+        default: null
     }
 })
 

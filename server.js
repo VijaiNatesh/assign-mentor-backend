@@ -5,6 +5,7 @@ const cors = require('cors')
 require('./config/dbConnect')();
 const mentorRoute = require("./routes/mentorRoute")
 const studentRoute = require("./routes/studentRoute")
+const assignRoute = require("./routes/assignRoute")
 
 app.use(cors())
 
@@ -14,6 +15,7 @@ app.get("/", (req,res) => {
 })
 app.use("/api/mentor", mentorRoute)
 app.use("/api/student", studentRoute)
+app.use("/api/assign", assignRoute)
 
 
 const PORT = process.env.PORT || 5000;

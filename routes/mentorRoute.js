@@ -2,7 +2,7 @@ var ObjectId = require('mongodb').ObjectID
 const express = require('express')
 const mentorRoute = express.Router()
 const Mentor = require("../models/mentor")
-
+const Student = require("../models/student")
 
 mentorRoute.post('/', async(req,res) => {
     const mentor = await Mentor.create(req.body)
@@ -10,38 +10,8 @@ mentorRoute.post('/', async(req,res) => {
 })
 
 mentorRoute.get('/student/:id', async(req, res) => {
-    const students = await Mentor.aggregate([
-        {
-            $match: {
-                _id: new ObjectId(req.params.id)
-            }
-        },
-        {
-            $lookup: {
-                from: "students",
-                localField: "_id",
-                foreignField: "mentor",
-                as: "student"
-            }
-        },
-        {
-            $unwind: "$student"
-        },
-        {
-            $addFields: {
-                "student" : "$student.name",
-                "studentid" : "$student._id"
-            }
-        },
-        {
-            $project: {
-                name: 1,
-                student : 1,
-                studentid : 1
-            }
-        }
-    ])
-    res.json(students)
+   const mentor = await Mentor.findById(req.params.id).populate("students", "name", Student)
+    res.json(mentor)
 })
 
 module.exports = mentorRoute

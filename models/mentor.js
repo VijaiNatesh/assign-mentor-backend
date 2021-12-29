@@ -8,8 +8,16 @@ const MentorSchema = new mongoose.Schema({
     },
     email:{
         type: String,
-        required: true
-    }
+        required: true,
+        unique: true
+    },
+    students: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Student",
+            default: true
+        }
+    ]
 })
 
 
