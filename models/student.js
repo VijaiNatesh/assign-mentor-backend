@@ -1,5 +1,5 @@
 const mongoose = require("mongoose")
-const conn = mongoose.createConnection("mongodb+srv://vijay:vijay123123@cluster0.5xxxy.mongodb.net/test")
+const conn = mongoose.createConnection("process.env.MONGO_URL")
 
 
 const StudentSchema = new mongoose.Schema({
