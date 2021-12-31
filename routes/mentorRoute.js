@@ -9,6 +9,11 @@ mentorRoute.post('/', async(req,res) => {
     res.json(mentor)
 })
 
+mentorRoute.get('/list', async(req, res) => {
+    const mentor = await Mentor.find()
+     res.json(mentor)
+ })
+
 mentorRoute.get('/student/:id', async(req, res) => {
    const mentor = await Mentor.findById(req.params.id).populate("students", "name", Student)
     res.json(mentor)
