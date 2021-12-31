@@ -9,6 +9,7 @@ studentRoute.post("/", async(req,res) => {
 
 studentRoute.get("/list", async(req,res) => {
     const student = await Student.find()
+    res.json(student)
 })
 
 studentRoute.get("/:id", async(req,res) => {
