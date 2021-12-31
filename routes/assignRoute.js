@@ -5,7 +5,7 @@ const Mentor = require("../models/mentor")
 const Student = require("../models/student")
 const cors = require("cors")
 
-assignRoute.post('/studenttomentor', cors() async(req, res) => {
+assignRoute.post('/studenttomentor', cors(), async(req, res) => {
    
     const mentor = await Mentor.findById(ObjectId(req.body.mentorId))
     mentor.students = [
