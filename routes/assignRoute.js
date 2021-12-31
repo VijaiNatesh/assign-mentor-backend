@@ -5,6 +5,10 @@ const Mentor = require("../models/mentor")
 const Student = require("../models/student")
 
 assignRoute.post('/studenttomentor', async(req, res) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");  
+    res.setHeader(  
+  "Access-Control-Allow-Headers",  
+  "Origin, X-Requested-With, Content-Type, Accept");  
     const mentor = await Mentor.findById(ObjectId(req.body.mentorId))
     mentor.students = [
         ...mentor.students,
@@ -15,8 +19,7 @@ assignRoute.post('/studenttomentor', async(req, res) => {
         const assign = await Student.findById(student)
         assign.mentor = ObjectId(req.body.mentorId)
         assign.save()
-    })
-    res.header("Access-Control-Allow-Origin", "*");
+    })   
     res.json(mentor)
 })
 
