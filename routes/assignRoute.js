@@ -5,15 +5,15 @@ const Mentor = require("../models/mentor")
 const Student = require("../models/student")
 
 assignRoute.post('/studenttomentor', async(req, res) => {
-    const mentor = await Mentor.findById(req.body.mentorId._id)
+    const mentor = await Mentor.findById(req.body.mentorId)
     mentor.students = [
         ...mentor.students,
-        ...req.body.students._id
+        ...req.body.students
     ]
     mentor.save();
     req.body.students.forEach(async(student) => {
         const assign = await Student.findById(student)
-        assign.mentor = req.body.mentorId._id
+        assign.mentor = req.body.mentorId
         assign.save()
     })
     res.json(mentor)
