@@ -16,6 +16,7 @@ assignRoute.post('/studenttomentor', async(req, res) => {
         assign.mentor = ObjectId(req.body.mentorId)
         assign.save()
     })
+    res.header("Access-Control-Allow-Origin", "*");
     res.json(mentor)
 })
 
