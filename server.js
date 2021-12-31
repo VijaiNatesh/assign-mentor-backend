@@ -8,7 +8,7 @@ const studentRoute = require("./routes/studentRoute")
 const assignRoute = require("./routes/assignRoute")
 
 app.use(cors({
-    origin: "*"
+    origin: ['http://localhost:3000']
 }))
 
 app.use(express.json())
