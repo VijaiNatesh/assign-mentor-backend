@@ -8,8 +8,9 @@ const studentRoute = require("./routes/studentRoute")
 const assignRoute = require("./routes/assignRoute")
 
 app.use(cors())
-
 app.use(express.json())
+app.use(express.urlencoded({ extended: false }));
+
 app.get("/", (req,res) => {
     res.send("Mentor and Student")
 })
