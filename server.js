@@ -7,7 +7,9 @@ const mentorRoute = require("./routes/mentorRoute")
 const studentRoute = require("./routes/studentRoute")
 const assignRoute = require("./routes/assignRoute")
 
-app.use(cors())
+app.use(cors({
+    origin: "*"
+}))
 
 app.use(express.json())
 app.get("/", (req,res) => {
