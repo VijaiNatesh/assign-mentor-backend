@@ -7,22 +7,15 @@ const mentorRoute = require("./routes/mentorRoute")
 const studentRoute = require("./routes/studentRoute")
 const assignRoute = require("./routes/assignRoute")
 
-
+app.use(cors({
+    "Access-Control-Allow-Origin" : "*"
+}))
 app.use(express.json())
-
-
-
 
 app.get("/", (req,res) => {
     res.send("Mentor and Student")
-})
 
-app.get("/", cors(), (req, res) => {
-res.setHeader("Access-Control-Allow-Origin", "*")
-res.setHeader("Access-Control-Allow-Credentials", "true");
-res.setHeader("Access-Control-Allow-Headers", "content-type");
-res.setHeader( "Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS" ); 
- });
+
 
 app.use("/api/mentor", mentorRoute)
 app.use("/api/student", studentRoute)
