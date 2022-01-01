@@ -8,7 +8,7 @@ const studentRoute = require("./routes/studentRoute")
 const assignRoute = require("./routes/assignRoute")
 
 app.use(cors({
-    Access-Control-Allow-Origin : *
+    res.setHeader('Access-Control-Allow-Origin', '*');
 }))
 app.use(express.json())
 
