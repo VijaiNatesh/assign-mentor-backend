@@ -9,7 +9,7 @@ const assignRoute = require("./routes/assignRoute")
 
 app.use(express.json())
 
-app.use(cors(), (req, res, next){
+app.use(cors(), function(req, res, next){
     res.setHeader('Access-Control-Allow-Origin', '*');
     next();
 });
