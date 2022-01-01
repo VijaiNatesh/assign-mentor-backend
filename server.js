@@ -9,12 +9,8 @@ const assignRoute = require("./routes/assignRoute")
 
 
 app.use(cors())
-const issue2options = {
- Access-Control-Allow-Origin: '*',
-  methods: ["POST"],
-  credentials: true,
-  maxAge: 3600
-};
+app.options('*',cors())
+
 // app.use(function(req, res, next) {
 //   res.header("Access-Control-Allow-Origin", "*");
 //   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -30,8 +26,7 @@ app.get("/", (req,res) => {
 
 app.use("/api/mentor", mentorRoute)
 app.use("/api/student", studentRoute)
-app.options("/api/assign", cors(issue2options));
-app.use("/api/assign", cors(issue2options), assignRoute)
+app.use("/api/assign",  assignRoute)
 
 
 const PORT = process.env.PORT || 5000;
