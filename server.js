@@ -17,7 +17,7 @@ app.get("/", (req,res) => {
     res.send("Mentor and Student")
 })
 
-router.get("/", (req, res) => {
+app.get("/", (req, res) => {
 res.setHeader("Access-Control-Allow-Origin", "*")
 res.setHeader("Access-Control-Allow-Credentials", "true");
 res.setHeader("Access-Control-Allow-Headers", "content-type");
