@@ -9,17 +9,18 @@ const assignRoute = require("./routes/assignRoute")
 
 var allowedOrigins = ['http://localhost:3000'];
 
-app.use(cors({
-   origin: function(origin, callback){ 
-    if(!origin) return callback(null, true);
-    if(allowedOrigins.indexOf(origin) === -1){
-      var msg = 'The CORS policy for this site does not ' +
-                'allow access from the specified Origin.';
-      return callback(new Error(msg), false);
-    }
-    return callback(null, true);
-  }
-}))
+app.use(cors())
+app.use((req, res, next) => {
+   res.header('Access-Control-Allow-Origin', '*');
+   res.header('Access-Control-Allow-Headers',
+      'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+   );
+   if (req.method === 'OPTIONS') {
+      req.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, DELETE, GET');
+      return res.status(200).json({});
+   }
+   next();
+});
 app.options('*',cors())
 
 // app.use(function(req, res, next) {
