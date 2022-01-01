@@ -7,14 +7,15 @@ const mentorRoute = require("./routes/mentorRoute")
 const studentRoute = require("./routes/studentRoute")
 const assignRoute = require("./routes/assignRoute")
 
+app.use(cors());
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }));
 //Enable cors
-app.use(cors(), function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*"); 
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
+// app.use(cors(), function(req, res, next) {
+//   res.header("Access-Control-Allow-Origin", "*"); 
+//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//   next();
+// });
 
 
 app.get("/", (req,res) => {
