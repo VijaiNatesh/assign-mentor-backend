@@ -7,9 +7,18 @@ const mentorRoute = require("./routes/mentorRoute")
 const studentRoute = require("./routes/studentRoute")
 const assignRoute = require("./routes/assignRoute")
 
+var allowedOrigins = ['http://localhost:3000'];
 
 app.use(cors({
-    origin : "http://localhost:3000"
+   origin: function(origin, callback){ 
+    if(!origin) return callback(null, true);
+    if(allowedOrigins.indexOf(origin) === -1){
+      var msg = 'The CORS policy for this site does not ' +
+                'allow access from the specified Origin.';
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
+  }
 }))
 app.options('*',cors())
 
