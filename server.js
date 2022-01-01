@@ -7,15 +7,15 @@ const mentorRoute = require("./routes/mentorRoute")
 const studentRoute = require("./routes/studentRoute")
 const assignRoute = require("./routes/assignRoute")
 
-app.use(cors({
-    res.setHeader('Access-Control-Allow-Origin', '*');
-}))
 app.use(express.json())
+
+app.use(function (req, res, next){
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    next();
+})
 
 app.get("/", (req,res) => {
     res.send("Mentor and Student")
-
-
 
 app.use("/api/mentor", mentorRoute)
 app.use("/api/student", studentRoute)
