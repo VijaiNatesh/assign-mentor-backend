@@ -9,6 +9,11 @@ const assignRoute = require("./routes/assignRoute")
 
 
 app.use(cors())
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 app.use(express.json())
 
@@ -18,7 +23,7 @@ app.get("/", (req,res) => {
 
 app.use("/api/mentor", mentorRoute)
 app.use("/api/student", studentRoute)
-app.use("/api/assign", cors(), assignRoute)
+app.use("/api/assign", assignRoute)
 
 
 const PORT = process.env.PORT || 5000;
