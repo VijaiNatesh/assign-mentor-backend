@@ -7,7 +7,7 @@ const mentorRoute = require("./routes/mentorRoute")
 const studentRoute = require("./routes/studentRoute")
 const assignRoute = require("./routes/assignRoute")
 
-app.use(cors())
+
 app.use((req, res, next) => {
    res.header('Access-Control-Allow-Origin', '*');
    res.header('Access-Control-Allow-Headers',
