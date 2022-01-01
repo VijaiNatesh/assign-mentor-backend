@@ -7,12 +7,8 @@ const mentorRoute = require("./routes/mentorRoute")
 const studentRoute = require("./routes/studentRoute")
 const assignRoute = require("./routes/assignRoute")
 
-const allowedOrigins = ['http://localhost:3000'];
 
-const options: cors.CorsOptions = {
-  origin: allowedOrigins
-};
-app.use(cors(options))
+app.use(cors())
 
 app.use(express.json())
 
@@ -22,7 +18,7 @@ app.get("/", (req,res) => {
 
 app.use("/api/mentor", mentorRoute)
 app.use("/api/student", studentRoute)
-app.use("/api/assign", assignRoute)
+app.use("/api/assign", cors(), assignRoute)
 
 
 const PORT = process.env.PORT || 5000;
