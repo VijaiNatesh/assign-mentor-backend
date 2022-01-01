@@ -30,6 +30,7 @@ app.get("/", (req,res) => {
 
 app.use("/api/mentor", mentorRoute)
 app.use("/api/student", studentRoute)
+app.options("/api/assign", cors(issue2options));
 app.use("/api/assign", cors(issue2options), assignRoute)
 
 
