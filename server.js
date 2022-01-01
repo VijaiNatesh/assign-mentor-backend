@@ -10,7 +10,7 @@ const assignRoute = require("./routes/assignRoute")
 
 app.use(cors())
 const issue2options = {
-  origin: '*',
+ Access-Control-Allow-Origin: '*',
   methods: ["POST"],
   credentials: true,
   maxAge: 3600
