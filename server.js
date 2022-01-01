@@ -8,11 +8,8 @@ const studentRoute = require("./routes/studentRoute")
 const assignRoute = require("./routes/assignRoute")
 
 app.use(cors(), (req, res, next){
-        res.header('Access-Control-Allow-Origin', '*');
-        res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-        res.header('Access-Control-Allow-Headers', 'X-Requested-With,Content-Type');
-     res.header('Access-Control-Allow-Credentials', true);
-    next();
+        res.header('Access-Control-Allow-Origin', '*');       
+        next();
 });
 
 app.use(express.json())
