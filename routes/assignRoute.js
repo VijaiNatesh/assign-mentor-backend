@@ -25,10 +25,10 @@ assignRoute.post('/studenttomentor', async(req, res) => {
 })
 
 assignRoute.post('/editstudentmentor', async(req,res) => {
+   try{
     const student = await Student.findById(req.body.studentId)
     let existingMentorId = student.mentor;
-    student.mentor = req.body.newMentorId;
-    res.json(student)
+    student.mentor = req.body.newMentorId;   
     
     let existingMentor = await Mentor.findById(existingMentorId)
 
@@ -55,6 +55,11 @@ assignRoute.post('/editstudentmentor', async(req,res) => {
         }
       }
       newMentor.save();
+       res.json(student)
+   }
+   catch(error){
+      console.log(error)
+   }
 
 })
 module.exports = assignRoute
