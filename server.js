@@ -8,15 +8,10 @@ const studentRoute = require("./routes/studentRoute")
 const assignRoute = require("./routes/assignRoute")
 
 
-app.use(cors());
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
-});
+app.use(cors({
+  origin: "http://localhost:3000"
+}));
+
 app.use(express.json())
 
 app.get("/", (req,res) => {
