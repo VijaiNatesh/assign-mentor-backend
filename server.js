@@ -9,7 +9,7 @@ const assignRoute = require("./routes/assignRoute")
 
 
 app.use(cors({
-  origin: "http://localhost:3000"
+  origin: "*"
 }));
 
 app.use(express.json())
