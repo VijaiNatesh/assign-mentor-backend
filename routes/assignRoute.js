@@ -6,7 +6,7 @@ const Student = require("../models/student")
 
 
 assignRoute.post('/studenttomentor', async(req, res) => {
-   
+   try {
     const mentor = await Mentor.findById(req.body.mentorId)
     mentor.students = [
         ...mentor.students,
@@ -19,6 +19,9 @@ assignRoute.post('/studenttomentor', async(req, res) => {
         assign.save()
     })   
     res.json(mentor)
+   } catch(error){
+      console.log(error)
+   }
 })
 
 assignRoute.post('/editstudentmentor', async(req,res) => {
