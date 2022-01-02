@@ -29,6 +29,7 @@ assignRoute.post('/editstudentmentor', async(req,res) => {
     const student = await Student.findById(req.body.studentId)
     let existingMentorId = student.mentor;
     student.mentor = req.body.newMentorId;   
+      student.save();
     
     let existingMentor = await Mentor.findById(existingMentorId)
 
