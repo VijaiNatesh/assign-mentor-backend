@@ -6,6 +6,7 @@ const Student = require("../models/student")
 
 mentorRoute.post('/', async(req,res) => {
     const mentor = await Mentor.create(req.body)
+    res.send("Mentor Created")
     res.json(mentor)
 })
 
